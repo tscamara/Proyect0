@@ -1,0 +1,6 @@
+Name: Teresa
+Password: Camara
+Email: t@gmail
+Address: 301
+Phone Number: 702
+Account Balance: 100.0

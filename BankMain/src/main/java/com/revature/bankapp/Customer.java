@@ -1,21 +1,57 @@
 package com.revature.bankapp;
 
 public class Customer {
-	String name;
-	String password;
-	String email;
-	String address;
-	String phoneNumber;
-	
+	private String name;
+	private String password;
+	private String email;
+	private String address;
+	private String phoneNumber;
+	private double balance;
 	
 	double accountNumber = 0;
 	
-	Customer(String name, String password, String email, String address, String phoneNumber){
+	
+	Customer(){};
+	
+	Customer(String name, String password, String email, String address, String phoneNumber, double balance){
 		this.name = name;
 		this.password = password;
 		this.email = email;
 		this.address = address;
 		this.phoneNumber = phoneNumber;
+		this.balance = balance;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
 	}
 
 	public String getName() {
