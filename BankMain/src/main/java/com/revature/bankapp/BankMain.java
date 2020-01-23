@@ -10,15 +10,35 @@ import java.util.Scanner;
 public class BankMain {
 
 	public static void main(String[] args) throws IOException {
+	
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Welcome to the banking app");
 		System.out.println("What would you like to do");
 		System.out.println("Type login or create account");
 		String option1 = scan.nextLine();
-
+       File [] files = null;
 		switch (option1) {
-		case "login":
-			System.out.println("You're logging in");
+		
+		case "login":System.out.println("Enter your name" );
+			//System.out.println("You're logging in");
+			String custName=scan.nextLine();
+			System.out.println("enter yor Password");
+			String custPass=scan.nextLine();
+			FileReader readFile= new FileReader(files.toString());
+			for (int i = 0; i < files.length; i++) {
+				
+				if (files[i].getName()==custName) {
+					
+					FileReader fread= new FileReader(files[i]);
+					BufferedReader bread = new BufferedReader(fread);
+					//while ((fread = bread.readLine()) != null) {
+						System.out.println(fread);
+					//}
+					
+				}
+				else System.out.println("your are not a customer please create a account");
+			}
+			
 			break;
 		case "create account":
 			System.out.println("Enter your name");
@@ -50,6 +70,7 @@ public class BankMain {
 					newCustomer.getPhoneNumber(), newCustomer.getBalance());
 			g.closeFile();
 			File customerFile = new File("Customers/" + name + ".txt");
+			files=customerFile.listFiles();
 			FileReader fr = new FileReader(customerFile);
 			BufferedReader br = new BufferedReader(fr);
 			while ((nextLine = br.readLine()) != null) {
