@@ -24,7 +24,7 @@ public class WithdrawDeposit {
 		System.out.println("Thank you!");
 		System.out.println("Customer Name: " + newCustomer1.getName());
 		System.out.println("Current Balance: " + newCustomer1.getBalance());
-		CreateFile g = new CreateFile();
+	//	CreateFile g = new CreateFile();
 		customerFile = new File("Customers/" + newCustomer1.getName() + ".txt"); 
 		 FileOutputStream fos=new FileOutputStream(customerFile);
 		 ObjectOutputStream oos=new ObjectOutputStream(fos);
@@ -37,7 +37,7 @@ public class WithdrawDeposit {
 		System.out.println("Thank you!");
 		System.out.println("Customer Name: " + newCustomer1.getName());
 		System.out.println("Current Balance: " + newCustomer1.getBalance());
-		CreateFile g1 = new CreateFile();
+		//CreateFile g1 = new CreateFile();
 		customerFile = new File("Customers/" + newCustomer1.getName() + ".txt"); 
 		 FileOutputStream fos1=new FileOutputStream(customerFile);
 		 ObjectOutputStream oos1=new ObjectOutputStream(fos1);

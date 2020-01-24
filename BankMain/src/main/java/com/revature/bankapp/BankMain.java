@@ -20,13 +20,16 @@ public class BankMain {
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Welcome to the banking app");
-		System.out.println("What would you like to do");
-		System.out.println("Type login or create account");
+		System.out.println("Welcome to the banking App  ");
+		System.out.println("If you are costumer type login");
+		System.out.println("If you want to apply for a Account type Create Account");
+		System.out.println("type Employee or Administrator");
+		//System.out.println("Type login or create account");
 		String option1 = scan.nextLine();
 		ArrayList<Customer> customerlist = null;// lista de custumer para poder buscar el custumer que esta ingresando
 		File customerFile=null;
 		Customer newCustomer1 = null;
+		Customer  emp=new Employee();
 	
 			  
             
@@ -63,7 +66,7 @@ public class BankMain {
 				else System.out.println("no found");		
 			
 			
-			
+			WithdrawDeposit.withDep(newCustomer1);
 
 			break;
 		case "create account":
@@ -87,19 +90,28 @@ public class BankMain {
 			newCustomer.setAddress(address);
 			newCustomer.setPhoneNumber(phoneNumber);
 			newCustomer.setBalance(acctBalance);
-
+			customerlist.add(newCustomer);
 		
-			CreateFile g = new CreateFile();
+			//CreateFile g = new CreateFile();
 			
 			 customerFile = new File("Customers/" + name + ".txt"); 
 			 FileOutputStream fos=new FileOutputStream(customerFile);
 			 ObjectOutputStream oos=new ObjectOutputStream(fos);
 		     oos.writeObject(newCustomer);
+		     
 			 
-		
+		case "employee":
+			System.out.println("wat to do want to do");
+			System.out.println("view customer or view all customer");
+		//	Scanner scan2=new Scanner(System.in);
+			// option2=scan2.nextLine();
+			Employee.viewCustomerInfo(newCustomer1);
+			
 			break;
+		
 		default:
-			System.out.println("Booo");
+			System.out.println("boo");
+			break;
 		}
 		
 	
@@ -107,8 +119,7 @@ public class BankMain {
 		
 		
 		
-		
-		WithdrawDeposit.withDep(newCustomer1);
+	
 		
 	}
 	
