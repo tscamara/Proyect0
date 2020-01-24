@@ -1,6 +1,8 @@
 package com.revature.bankapp;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
 	private String name;
 	private String password;
 	private String email;
@@ -78,7 +80,11 @@ public class Customer {
 		this.accountNumber = accountNumber;
 	}
 	
-	
+	public void deposit(Double amount) {
+		
+		this.balance+=amount;
+		
+	}
 	
 
 }
