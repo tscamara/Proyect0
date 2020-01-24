@@ -26,7 +26,8 @@ public class BankMain {
 		String option1 = scan.nextLine();
 		ArrayList<Customer> customerlist = null;// lista de custumer para poder buscar el custumer que esta ingresando
 		File customerFile=null;
-		// FileNameFilter filter = new FileNameFilter() 
+		Customer newCustomer1 = null;
+	
 			  
             
 		switch (option1) {
@@ -44,7 +45,7 @@ public class BankMain {
 
 					FileInputStream fis=new FileInputStream(customerFile);
 					ObjectInputStream ois=new ObjectInputStream(fis);
-					Customer newCustomer1=(Customer)ois.readObject();
+					 newCustomer1=(Customer)ois.readObject();
 					ois.close();
 					//System.out.println(newCustomer1.getName());
 					String cuName=newCustomer1.getName();
@@ -52,7 +53,7 @@ public class BankMain {
 					if (cuName.equalsIgnoreCase(custName)&& cuPass.equalsIgnoreCase(custPass)) {
 						System.out.println("You had logging to your account");
 						System.out.println("this is your current Balance "+newCustomer1.getBalance());
-						System.out.println("you want to deposit or Withdraw");
+					
 						
 					}
 					
@@ -89,27 +90,28 @@ public class BankMain {
 
 		
 			CreateFile g = new CreateFile();
-			/*g.openFile(name);
-			g.addRecords(newCustomer.getName(), newCustomer.getPassword(), newCustomer.getEmail(),
-					newCustomer.getAddress(), newCustomer.getPhoneNumber(), newCustomer.getBalance());
-			g.closeFile();*/
+			
 			 customerFile = new File("Customers/" + name + ".txt"); 
 			 FileOutputStream fos=new FileOutputStream(customerFile);
 			 ObjectOutputStream oos=new ObjectOutputStream(fos);
 		     oos.writeObject(newCustomer);
 			 
-			/*files = customerFile.listFiles();
-			FileReader fr = new FileReader(customerFile);
-			BufferedReader br = new BufferedReader(fr);
-			while ((nextLine = br.readLine()) != null) {
-				System.out.println(nextLine);
-			}
-			String checker = br.readLine();
-			System.out.println(checker);*/
+		
 			break;
 		default:
 			System.out.println("Booo");
 		}
+		
+	
+		
+		
+		
+		
+		
+		WithdrawDeposit.withDep(newCustomer1);
+		
 	}
+	
+	
 
 }

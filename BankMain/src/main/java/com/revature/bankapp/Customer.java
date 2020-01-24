@@ -86,5 +86,13 @@ public class Customer implements Serializable {
 		
 	}
 	
+	public void withdraw(Double amount) {
+		if(this.balance-amount<0) {
+			System.out.println("You have insufficient funds");
+		}else {
+			this.balance -=amount;
+		}
+	}
+	
 
 }
